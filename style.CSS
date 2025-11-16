@@ -47,7 +47,3 @@ body {
     opacity: 1;
     bottom: 50px;
 }
-
-/* * KELAS HELPER DIHAPUS DARI SINI DAN DIPINDAHKAN LANGSUNG KE ELEMEN HTML 
- * untuk memaksa peramban me-render ulang dan menghindari masalah cache.
- */
