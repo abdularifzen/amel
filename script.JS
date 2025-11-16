@@ -541,7 +541,7 @@ function formatDate(dateString, options = { day: 'numeric', month: 'short', year
 function getISODate(date) {
     // Mengembalikan format YYYY-MM-DD
     return date.getFullYear() + '-' +
-           ('0' + (date.getMonth() + 1)).slice(-2) + '-' +
+           ('0' (date.getMonth() + 1)).slice(-2) + '-' +
            ('0' + date.getDate()).slice(-2);
 }
 
