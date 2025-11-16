@@ -79,7 +79,8 @@ function saveDB() {
 
 // --- Navigasi Halaman & Modal ---
 
-function navigateTo(pageId) {
+// DAFTARKAN FUNGSI KE "WINDOW" AGAR BISA DIAKSES ONCLICK DARI SERVER
+window.navigateTo = function(pageId) {
     // Sembunyikan semua halaman
     document.querySelectorAll('.page').forEach(page => {
         page.classList.remove('active');
@@ -114,7 +115,7 @@ function navigateTo(pageId) {
     }
 }
 
-function showModal(modalId) {
+window.showModal = function(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.classList.add('active');
@@ -134,13 +135,13 @@ function showModal(modalId) {
     }
 }
 
-function hideModal(modalId) {
+window.hideModal = function(modalId) {
     document.getElementById(modalId).classList.remove('active');
 }
 
 // --- ALUR 1: Tambah Transaksi ---
 
-function switchTxType(type) {
+window.switchTxType = function(type) {
     currentTxType = type;
     const tabPengeluaran = document.getElementById('tab-pengeluaran');
     const tabPemasukan = document.getElementById('tab-pemasukan');
@@ -157,7 +158,7 @@ function switchTxType(type) {
     }
 }
 
-function saveTransaction() {
+window.saveTransaction = function() {
     // 1. Ambil data dari form
     const amount = parseFloat(document.getElementById('form-tx-nominal').value);
     const category = (currentTxType === 'pengeluaran') ? document.getElementById('form-tx-kategori').value : 'Pemasukan';
@@ -203,7 +204,7 @@ function saveTransaction() {
 
 // --- ALUR 2: Halaman Histori ---
 
-function renderHistoryPage() {
+window.renderHistoryPage = function() {
     const filter = document.getElementById('history-filter-time').value;
     const filteredTx = filterTransactions(db.transactions, filter);
     
@@ -257,7 +258,7 @@ function renderHistoryPage() {
 
 // --- ALUR 3: Halaman Analisis ---
 
-function renderAnalysisPage() {
+window.renderAnalysisPage = function() {
     const filter = document.getElementById('analysis-filter-time').value;
     // Filter hanya pengeluaran
     const allPengeluaran = db.transactions.filter(tx => tx.type === 'pengeluaran');
@@ -336,7 +337,7 @@ function renderSettingsLimitPage() {
     document.getElementById('setting-limit-bulanan').value = db.settings.limitBulanan;
 }
 
-function saveSettingsLimit() {
+window.saveSettingsLimit = function() {
     const limit = parseFloat(document.getElementById('setting-limit-bulanan').value);
     if (limit && limit >= 0) {
         db.settings.limitBulanan = limit;
@@ -361,7 +362,7 @@ function renderSettingsKategoriPage() {
     });
 }
 
-function addCategory() {
+window.addCategory = function() {
     const inputEl = document.getElementById('setting-kategori-baru');
     const newKategori = inputEl.value.trim();
     if (newKategori) {
@@ -374,7 +375,7 @@ function addCategory() {
     }
 }
 
-function deleteCategory(index) {
+window.deleteCategory = function(index) {
     // Konfirmasi sederhana (karena window.confirm tidak boleh)
     // Di aplikasi nyata, ini seharusnya modal kustom
     const kategori = db.settings.kategori[index];
@@ -391,7 +392,7 @@ function renderSettingsMotivasiPage() {
     document.getElementById('setting-motivasi-merah').value = db.settings.motivasi.merah;
 }
 
-function saveSettingsMotivasi() {
+window.saveSettingsMotivasi = function() {
     db.settings.motivasi.kuning = document.getElementById('setting-motivasi-kuning').value;
     db.settings.motivasi.merah = document.getElementById('setting-motivasi-merah').value;
     saveDB();
@@ -404,7 +405,7 @@ function renderSettingsNotifikasiPage() {
     document.getElementById('setting-notif-waktu').value = db.settings.notifikasi.waktu;
 }
 
-function saveSettingsNotifikasi() {
+window.saveSettingsNotifikasi = function() {
     db.settings.notifikasi.aktif = document.getElementById('setting-notif-aktif').checked;
     db.settings.notifikasi.waktu = document.getElementById('setting-notif-waktu').value;
     saveDB();
@@ -414,7 +415,7 @@ function saveSettingsNotifikasi() {
 
 // --- ALUR 5: Ubah Impian ---
 
-function saveDream() {
+window.saveDream = function() {
     // 1. Ambil data
     const title = document.getElementById('form-dream-title').value;
     const targetAmount = parseFloat(document.getElementById('form-dream-target').value);
