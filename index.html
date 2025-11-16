@@ -35,19 +35,12 @@
         }
     </script>
     
-    <!-- Memuat CSS Kustom (File terpisah) -->
+    <!-- Memuat CSS Kustom -->
     <link rel="stylesheet" href="style.css">
     
 </head>
 
 <body class="bg-gray-100">
-
-    <!-- 
-      Struktur Aplikasi:
-      Aplikasi ini disimulasikan sebagai Multi-Page App dalam satu file.
-      Hanya satu '.page' yang 'active' (visible) pada satu waktu.
-      Navigasi dikontrol oleh JavaScript (fungsi navigateTo(pageId)).
-    -->
 
     <!-- Wadah utama untuk simulasi perangkat seluler -->
     <div class="max-w-md mx-auto min-h-screen bg-gray-100 shadow-xl" id="app-container">
@@ -62,7 +55,7 @@
                     <h1 class="text-2xl font-bold">FokusMasaDepan</h1>
                     <button onclick="navigateTo('page-settings')" class="p-2 rounded-full hover:bg-white/20 transition-all" aria-label="Pengaturan">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.43-1.6 2.923-1.6 3.354 0l.43 1.6c.29.078.574.168.845.27l1.524-.43c1.55-.44 3.03.8 2.58 2.348l-.43 1.524c.102.27.192.556.27.845l1.6.43c1.6.43 1.6 2.924 0 3.354l-1.6.43c-.078.29-.168.574-.27.845l.43 1.524c.44 1.55-.8 3.03-2.348 2.58l-1.524-.43c-.27.102-.556.192-.845.27l-.43 1.6c-.43 1.6-2.924 1.6-3.354 0l-.43-1.6c-.29-.078-.574-.168-.845-.27l-1.524.43c-1.55.44-3.03-.8-2.58-2.348l.43-1.524c-.102.27-.192-.556-.27-.845l-1.6-.43c-1.6-.43-1.6-2.924 0-3.354l1.6-.43c.078-.29.168.574.27.845l-.43-1.524c-.44-1.55.8-3.03 2.348-2.58l1.524.43c.27-.102.556.192.845.27l.43-1.6zM12 15a3 3 0 100-6 3 3 0 000 6z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.43-1.6 2.923-1.6 3.354 0l.43 1.6c.29.078.574.168.845.27l1.524-.43c1.55-.44 3.03.8 2.58 2.348l-.43 1.524c.102.27.192.556.27.845l1.6.43c1.6.43 1.6 2.924 0 3.354l-1.6.43c-.078.29-.168.574-.27.845l.43 1.524c.44 1.55-.8 3.03-2.348 2.58l-1.524-.43c-.27.102-.556.192-.845.27l-.43 1.6c-.43 1.6-2.924 1.6-3.354 0l-.43-1.6c-.29-.078-.574-.168-.845-.27l-1.524.43c-1.55.44-3.03-.8-2.58-2.348l.43-1.524c-.102.27-.192.556-.27-.845l-1.6-.43c-1.6-.43-1.6-2.924 0-3.354l1.6-.43c.078-.29.168.574.27.845l-.43-1.524c-.44-1.55.8-3.03 2.348-2.58l1.524.43c.27-.102.556.192.845.27l.43-1.6zM12 15a3 3 0 100-6 3 3 0 000 6z" />
                         </svg>
                     </button>
                 </div>
@@ -425,10 +418,17 @@
                 </div>
             </div>
         </div>
-      <!-- Toast Notification -->
+        
+        <!-- Toast Notification -->
         <div id="toast">Pesan notifikasi...</div>
-    </div> <!-- Akhir dari #app-container -->
-   <script src="script.js"></script>
-    </body>
 
+    </div> <!-- Akhir dari #app-container -->
+
+
+    <!-- ====================================================== -->
+    <!-- JavaScript Logic Aplikasi (File terpisah) -->
+    <!-- ====================================================== -->
+    <script src="script.js"></script>
+    
+</body>
 </html>
